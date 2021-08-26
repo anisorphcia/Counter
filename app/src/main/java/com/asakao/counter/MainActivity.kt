@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings.Global.putInt
 import androidx.core.content.edit
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.asakao.counter.databinding.ActivityMainBinding
@@ -29,14 +30,16 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, MainViewModelFactory(countReserved)).get(MainViewModel::class.java)
 
         binding.plusOneBtn.setOnClickListener {
-            viewModel.counter++
-            refreshCounter()
+            viewModel.plusOne()
         }
 
         binding.clear.setOnClickListener {
-            viewModel.counter = 0
-            refreshCounter()
+            viewModel.clear()
         }
+
+        viewModel.counter.observe(this, Observer { count ->
+            binding.infoText.text = count.toString()
+        })
 
         refreshCounter()
     }
@@ -48,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         sp.edit{
-            putInt("count", viewModel.counter)
+            putInt("count", viewModel.counter.value ?: 0)
         }
     }
 
