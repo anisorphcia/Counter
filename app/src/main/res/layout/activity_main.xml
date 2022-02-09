@@ -29,4 +29,44 @@
         android:text="Clear"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/getUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Get User"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/addUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Add User"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/updateUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Update User"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/deleteUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Delete User"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/queryUserBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Query User"
+        android:textAllCaps="false"/>
+
 </LinearLayout>

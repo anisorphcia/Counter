@@ -37,11 +37,21 @@ class MainActivity : AppCompatActivity() {
             viewModel.clear()
         }
 
+        // 观察数据变化
         viewModel.counter.observe(this, Observer { count ->
             binding.infoText.text = count.toString()
         })
 
         refreshCounter()
+
+        binding.getUserBtn.setOnClickListener {
+            val userId = (0..10000).random().toString()
+            viewModel.getUser(userId)
+        }
+
+        viewModel.user.observe(this, Observer { user ->
+            binding.infoText.text = user.fn
+        })
     }
 
     private fun refreshCounter(){
